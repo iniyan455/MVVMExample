@@ -1,12 +1,12 @@
-package net.simplifiedcoding.mvvmsampleapp.data.repositories
+package com.iniyan.mvvm.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import net.simplifiedcoding.mvvmsampleapp.data.db.AppDatabase
-import net.simplifiedcoding.mvvmsampleapp.data.db.entities.User
-import net.simplifiedcoding.mvvmsampleapp.data.network.MyApi
-import net.simplifiedcoding.mvvmsampleapp.data.network.SafeApiRequest
-import net.simplifiedcoding.mvvmsampleapp.data.network.responses.AuthResponse
+import com.iniyan.mvvm.data.db.AppDatabase
+import com.iniyan.mvvm.data.db.entities.User
+import com.iniyan.mvvm.data.network.MyApi
+import com.iniyan.mvvm.data.network.SafeApiRequest
+import com.iniyan.mvvm.data.network.responses.AuthResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,11 +19,12 @@ class UserRepository(
 
     /** bad implementation **/
     fun userLoginOld(email: String,password: String):LiveData<String>{
-        val loginResponse=MutableLiveData<String>()
+        val loginResponse = MutableLiveData<String>()
+
         api.userLoginOld(email,password).enqueue(object :Callback<ResponseBody>{
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
 
-                loginResponse.value=t.message
+                loginResponse.value = t.message
             }
 
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
@@ -41,8 +42,21 @@ class UserRepository(
     }
 
 
+    /**
+     * Response AuthResponse
+     * Suspend function only allows coroutine or any another suspend function
+     */
     suspend fun userLogin(email: String, password: String): AuthResponse {
-        return apiRequest { api.userLogin(email, password) }
+        return  apiRequest {
+
+            /**
+             *  MyApi().userLogin(email, password)
+             *  bad idea instead of use inject through constructor
+             */
+
+            api.userLogin(email, password)
+
+        }
     }
 
     suspend fun userSignup(

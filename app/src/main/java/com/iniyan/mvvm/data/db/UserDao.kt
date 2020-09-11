@@ -1,12 +1,12 @@
-package net.simplifiedcoding.mvvmsampleapp.data.db
+package com.iniyan.mvvm.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import net.simplifiedcoding.mvvmsampleapp.data.db.entities.CURRENT_USER_ID
-import net.simplifiedcoding.mvvmsampleapp.data.db.entities.User
+import com.iniyan.mvvm.data.db.entities.CURRENT_USER_ID
+import com.iniyan.mvvm.data.db.entities.User
 
 
 /**
@@ -18,6 +18,7 @@ interface UserDao{
     /**
      * User Insert and get Long return
      * Insert command onConflict same id or same key - use  onConflict = OnConflictStrategy.REPLACE
+     * need to make function is suspend else crash
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(user: User) : Long

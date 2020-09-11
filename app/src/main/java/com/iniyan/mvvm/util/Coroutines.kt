@@ -6,8 +6,14 @@ import kotlinx.coroutines.launch
 
 object Coroutines {
 
+    /**
+     * Unit is equivalent to void java
+     */
     fun main(work: suspend (() -> Unit)) =
+
         CoroutineScope(Dispatchers.Main).launch {
+            // Dispatchers.Main - Main Thread there are four options -Default,Main,IO
+            //Launch returns a job
             work()
         }
 

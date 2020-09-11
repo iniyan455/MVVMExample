@@ -1,9 +1,9 @@
-package net.simplifiedcoding.mvvmsampleapp.data.network
+package com.iniyan.mvvm.data.network
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import net.simplifiedcoding.mvvmsampleapp.util.NoInternetException
+import com.iniyan.mvvm.util.NoInternetException
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -23,6 +23,7 @@ class NetworkConnectionInterceptor(
         var result = false
         val connectivityManager =
             applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+
         connectivityManager?.let {
             it.getNetworkCapabilities(connectivityManager.activeNetwork)?.apply {
                 result = when {

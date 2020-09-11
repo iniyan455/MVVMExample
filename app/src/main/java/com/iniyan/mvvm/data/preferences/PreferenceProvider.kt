@@ -1,4 +1,4 @@
-package net.simplifiedcoding.mvvmsampleapp.data.preferences
+package com.iniyan.mvvm.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences

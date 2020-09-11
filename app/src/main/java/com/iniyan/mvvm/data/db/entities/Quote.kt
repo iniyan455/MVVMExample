@@ -1,9 +1,9 @@
-package net.simplifiedcoding.mvvmsampleapp.data.db.entities
+package com.iniyan.mvvm.data.db.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "Quote")
 data class Quote(
     @PrimaryKey(autoGenerate = false)
     val id: Int,

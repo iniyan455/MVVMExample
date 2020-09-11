@@ -1,10 +1,9 @@
-package com.iniyan.mvvm_example.ui.auth
+package com.iniyan.mvvm.ui.auth
 
-import android.os.Message
+import com.iniyan.mvvm.data.db.entities.User
 
 interface AuthListener {
-
     fun onStarted()
-    fun onSuccess()
+    fun onSuccess(user :User)
     fun onFailure(message: String)
 }

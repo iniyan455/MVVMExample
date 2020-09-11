@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "MVVM_EXAMPLE"
+rootProject.name = "MVVM Design Pattern"

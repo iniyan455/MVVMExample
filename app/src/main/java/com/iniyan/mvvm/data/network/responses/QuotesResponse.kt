@@ -1,6 +1,6 @@
-package net.simplifiedcoding.mvvmsampleapp.data.network.responses
+package com.iniyan.mvvm.data.network.responses
 
-import net.simplifiedcoding.mvvmsampleapp.data.db.entities.Quote
+import com.iniyan.mvvm.data.db.entities.Quote
 
 data class QuotesResponse (
     val isSuccessful: Boolean,

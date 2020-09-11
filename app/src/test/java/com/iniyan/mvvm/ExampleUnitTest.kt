@@ -1,4 +1,4 @@
-package com.iniyan.mvvm_example
+package com.iniyan.mvvm
 
 import org.junit.Test
 

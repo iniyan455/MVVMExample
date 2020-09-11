@@ -1,7 +1,9 @@
-package net.simplifiedcoding.mvvmsampleapp.data.network.responses
+package com.iniyan.mvvm.data.network.responses
 
-import net.simplifiedcoding.mvvmsampleapp.data.db.entities.User
+import androidx.annotation.Keep
+import com.iniyan.mvvm.data.db.entities.User
 
+@Keep
 data class AuthResponse(
     val isSuccessful : Boolean?,
     val message: String?,

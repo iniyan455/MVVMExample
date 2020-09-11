@@ -1,20 +1,23 @@
-package net.simplifiedcoding.mvvmsampleapp.data.repositories
+package com.iniyan.mvvm.data.repository
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.simplifiedcoding.mvvmsampleapp.data.db.AppDatabase
-import net.simplifiedcoding.mvvmsampleapp.data.db.entities.Quote
-import net.simplifiedcoding.mvvmsampleapp.data.network.MyApi
-import net.simplifiedcoding.mvvmsampleapp.data.network.SafeApiRequest
-import net.simplifiedcoding.mvvmsampleapp.data.preferences.PreferenceProvider
+import com.iniyan.mvvm.data.network.MyApi
+import com.iniyan.mvvm.data.network.SafeApiRequest
+import com.iniyan.mvvm.data.preferences.PreferenceProvider
+import com.iniyan.mvvm.data.db.AppDatabase
+import com.iniyan.mvvm.data.db.entities.Quote
 import net.simplifiedcoding.mvvmsampleapp.util.Coroutines
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 private val MINIMUM_INTERVAL = 6
 
+@RequiresApi(Build.VERSION_CODES.O)
 class QuotesRepository(
     private val api: MyApi,
     private val db: AppDatabase,
@@ -36,6 +39,7 @@ class QuotesRepository(
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun fetchQuotes() {
         val lastSavedAt = prefs.getLastSavedAt()
 
@@ -49,11 +53,13 @@ class QuotesRepository(
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun isFetchNeeded(savedAt: LocalDateTime): Boolean {
         return ChronoUnit.HOURS.between(savedAt, LocalDateTime.now()) > MINIMUM_INTERVAL
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun saveQuotes(quotes: List<Quote>) {
         Coroutines.io {
             prefs.savelastSavedAt(LocalDateTime.now().toString())
