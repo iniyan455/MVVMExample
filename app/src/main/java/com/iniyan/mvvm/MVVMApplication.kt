@@ -14,8 +14,8 @@ import org.kodein.di.generic.instance
 import org.kodein.di.generic.singleton
 
 class MVVMApplication :Application() , KodeinAware {
-    override val kodein: Kodein = Kodein.lazy {
 
+    override val kodein: Kodein = Kodein.lazy {
         import(androidXModule(this@MVVMApplication))
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { MyApi(instance()) }

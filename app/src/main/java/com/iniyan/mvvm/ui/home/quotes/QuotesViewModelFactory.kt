@@ -1,15 +1,15 @@
-package com.iniyan.mvvm.ui.auth
+package com.iniyan.mvvm.ui.home.quotes
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.iniyan.mvvm.data.repository.UserRepository
+import com.iniyan.mvvm.data.repository.QuotesRepository
 
 @Suppress("UNCHECKED_CAST")
-class AuthViewModelFactory(
-    private val repository: UserRepository
+class QuotesViewModelFactory(
+    private val repository: QuotesRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return AuthViewModel(repository) as T
+        return QuotesViewModel(repository) as T
     }
 }

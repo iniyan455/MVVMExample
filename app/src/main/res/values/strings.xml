@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MVVM_EXAMPLE</string>
+    <string name="architech_your_app_with">Architech Your APP With</string>
+    <string name="mvvm">MVVM</string>
+    <string name="email_sample_hint">iniyan455@gmail.com</string>
+    <string name="password_hint">password</string>
+    <string name="forget_password_lbl">Forget Password?</string>
+    <string name="sign_in_lbl">Sign In</string>
+    <string name="singuphere_lbl">Don\'t have an account?\nSign Up Here</string>
+    <string name="name_hint">Iniyan</string>
+    <string name="email_hint">iniyan455gmail.com</string>
+    <string name="confirm_password_lbl">confirm password</string>
+    <string name="sign_up_lbl">Sign Up</string>
+    <string name="already_have_an_account_nsign_in_here">Already have an account?\nSign in Here</string>
 </resources>
