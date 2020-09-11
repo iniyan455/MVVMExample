@@ -108,7 +108,7 @@ it is very important we need to follow the principles
         
         
         
-        
+      Normal Retrofit API Call Structure  
           @FormUrlEncoded
             @POST("login")
              fun userLoginOld(
