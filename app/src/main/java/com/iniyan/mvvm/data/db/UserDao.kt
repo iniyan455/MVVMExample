@@ -13,7 +13,7 @@ import com.iniyan.mvvm.data.db.entities.User
  * Data access object
  */
 @Dao
-interface UserDao{
+interface UserDao {
 
     /**
      * User Insert and get Long return

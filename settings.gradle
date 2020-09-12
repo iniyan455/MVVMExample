@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "MVVM Design Pattern"
+rootProject.name = "android-mvvm-architecture"
