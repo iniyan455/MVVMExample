@@ -14,6 +14,7 @@ import com.iniyan.mvvm.util.NoInternetException
 import com.iniyan.mvvm.util.snackbar
 import kotlinx.coroutines.launch
 import com.iniyan.mvvm.ui.home.HomeActivity
+import com.iniyan.mvvm.util.toast
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
@@ -53,7 +54,22 @@ class SignupActivity : AppCompatActivity(), KodeinAware {
         val password = binding.editTextPassword.text.toString().trim()
         val password1 = binding.editTextPassword.text.toString().trim()
 
-        //@todo add input validations
+        if(name.isEmpty()){
+            toast("Name is required")
+            return
+        }
+        if(email.isEmpty()){
+            toast("Email is required")
+            return
+        }
+        if(password.isEmpty()){
+            toast("Please enter a password")
+            return
+        }
+        if(password != password1){
+            toast("Please enter a password")
+            return
+        }
 
         lifecycleScope.launch {
             try {

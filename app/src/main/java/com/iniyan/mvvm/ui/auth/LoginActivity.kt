@@ -14,6 +14,7 @@ import com.iniyan.mvvm.util.NoInternetException
 import com.iniyan.mvvm.util.snackbar
 import kotlinx.coroutines.launch
 import com.iniyan.mvvm.ui.home.HomeActivity
+import com.iniyan.mvvm.util.toast
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
@@ -55,6 +56,12 @@ class LoginActivity : AppCompatActivity(), KodeinAware {
     private fun loginUser() {
         val email = binding.editTextEmail.text.toString().trim()
         val password = binding.editTextPassword.text.toString().trim()
+
+        if(email.isNullOrEmpty() || password.isNullOrEmpty()){
+            toast("InValid email or password")
+            return
+        }
+
 
         lifecycleScope.launch {
             try {
