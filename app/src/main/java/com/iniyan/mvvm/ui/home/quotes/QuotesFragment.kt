@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.iniyan.mvvm.R
 import com.iniyan.mvvm.data.db.entities.Quote
@@ -15,7 +15,7 @@ import com.iniyan.mvvm.util.show
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.quotes_fragment.*
-import net.simplifiedcoding.mvvmsampleapp.util.Coroutines
+import com.iniyan.mvvm.util.Coroutines
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
@@ -37,14 +37,14 @@ class QuotesFragment : Fragment(), KodeinAware {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, factory).get(QuotesViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory).get(QuotesViewModel::class.java)
         bindUI()
     }
 
 
     private fun bindUI() = Coroutines.main {
         progress_bar.show()
-        viewModel.quotes.await().observe(this, Observer {
+        viewModel.quotes.await().observe(viewLifecycleOwner, Observer {
             progress_bar.hide()
             initRecyclerView(it.toQuoteItem())
         })

@@ -9,7 +9,7 @@ import com.iniyan.mvvm.data.network.SafeApiRequest
 import com.iniyan.mvvm.data.preferences.PreferenceProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.simplifiedcoding.mvvmsampleapp.util.Coroutines
+import com.iniyan.mvvm.util.Coroutines
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 

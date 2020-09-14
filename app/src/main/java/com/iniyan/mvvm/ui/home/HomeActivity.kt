@@ -6,6 +6,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.iniyan.mvvm.R
 import kotlinx.android.synthetic.main.activity_home.*
+
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

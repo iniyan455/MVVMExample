@@ -1,8 +1,9 @@
-package net.simplifiedcoding.mvvmsampleapp.util
+package com.iniyan.mvvm.util
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 
 object Coroutines {
 

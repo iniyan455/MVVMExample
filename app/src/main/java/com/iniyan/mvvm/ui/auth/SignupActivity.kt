@@ -29,10 +29,11 @@ class SignupActivity : AppCompatActivity(), KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signup)
         viewModel = ViewModelProvider(this, factory).get(AuthViewModel::class.java)
 
-        viewModel.getLoggedInUser().observe(this, Observer { user ->
+        viewModel.getLoggedInUser().observe(this, { user ->
             if (user != null) {
                 Intent(this, HomeActivity::class.java).also {
                     it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
